@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import reset from "styled-reset";
+import Checkbox from "./components/Checkbox";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Wrap>
+        <Title>Check box</Title>
+        <Checkbox label="fisrt" />
+        <Checkbox label="second" disabled />
+        <Checkbox label="third" />
+      </Wrap>
+      <Wrap>
+        <Title>Check box</Title>
+        <Checkbox label="fisrt" />
+        <Checkbox label="second" disabled />
+        <Checkbox label="third" />
+      </Wrap>
+    </>
   );
 }
+
+const Wrap = styled.div``;
+
+const Title = styled.h4`
+  margin: 10px 20px;
+  font-size: 30px;
+`;
 
 export default App;
