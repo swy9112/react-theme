@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Checkbox = ({ label, ...props }) => (
   <Wrap disabled={props.disabled}>
     <input type="checkbox" {...props} />
-    <CheckboxStyle></CheckboxStyle>
+    <CheckboxStyle />
     {label}
   </Wrap>
 );
@@ -12,7 +12,7 @@ const Checkbox = ({ label, ...props }) => (
 const Wrap = styled.label`
   display: inline-flex;
   align-items: center;
-  margin: 20px;
+  margin-right: 20px;
   cursor: pointer;
 
   &[disabled] {
