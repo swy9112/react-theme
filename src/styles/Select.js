@@ -1,58 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-export const Select = ({ children }) => {
-  const [inputValue, setInputValue] = useState("");
-  const [selectValue, setSelectValue] = useState("naver.com");
-  const [submitValue, setSubmitValue] = useState("");
-
-  const selectChange = event => {
-    setSelectValue(event.target.value);
-  };
-
-  const inputChange = event => {
-    setInputValue(event.target.value);
-  };
-
-  const selectSubmit = () => {
-    inputValue ? setSubmitValue(`${inputValue}@${selectValue}`) : setSubmitValue("id를 입력하세요.");
+export const Select = ({ children, select }) => {
+  const handleOption = () => {
+    return console.log("1111");
   };
 
   return (
     <>
-      <InputStyle placeholder="id" onChange={inputChange} value={inputValue} type="text" />
-      <SelectWrap onChange={selectChange}>{children}</SelectWrap>
-      <Submit onClick={selectSubmit}>Submit</Submit>
-      <SubmitView>{submitValue}</SubmitView>
+      <SelectWrap select={select}>
+        <OptionView onClick={handleOption} />
+        {select}
+        {children}
+      </SelectWrap>
     </>
   );
 };
 
-export const Option = ({ ...props }) => {
-  return <OptionStyle {...props}>{props.value}</OptionStyle>;
+export const Option = ({ children }) => {
+  return <OptionWrap>{children}</OptionWrap>;
 };
 
-const SelectWrap = styled.select`
+export const OptionSelect = ({ option }) => {
+  return <div>{option}</div>;
+};
+
+const SelectWrap = styled.div`
+  position: relative;
+  display: inline-block;
   margin-right: 10px;
-  padding: 6px;
+  padding: 6px 30px 6px 6px;
   outline: none;
-`;
-const OptionStyle = styled.option``;
-
-const InputStyle = styled.input`
-  margin-right: 10px;
-  padding: 6px;
+  border: 1px solid #ccc;
 `;
 
-const Submit = styled.button`
+const OptionWrap = styled.div``;
+
+const OptionView = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  background: red;
   cursor: pointer;
-  padding: 6px;
-  border: none;
-  outline: none;
-`;
-
-const SubmitView = styled.div`
-  display: block;
-  margin-top: 20px;
-  font-size: 36px;
 `;

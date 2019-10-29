@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Checkbox, Input, Radio, Select, Option } from "./styles/index";
+import { OptionSelect } from "./styles/Select";
 
 function App() {
   return (
@@ -26,10 +27,12 @@ function App() {
       </Wrap>
       <Wrap>
         <Title>Select</Title>
-        <Select>
-          <Option value="naver.com" />
-          <Option value="gmail.com" />
-          <Option value="daum.net" />
+        <Select select="naver.com">
+          <Option>
+            <OptionSelect option="naver.com" />
+            <OptionSelect option="gmail.com" />
+            <OptionSelect option="daum.net" />
+          </Option>
         </Select>
       </Wrap>
     </>
